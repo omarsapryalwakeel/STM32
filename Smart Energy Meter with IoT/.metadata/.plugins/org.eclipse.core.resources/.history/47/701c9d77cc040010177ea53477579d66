@@ -1,0 +1,14 @@
+/*
+ * ADE7953.c
+ *
+ *  Created on: Mar 19, 2025
+ *      Author: omar
+ */
+
+#include "ADE7953.h"
+
+HAL_StatusTypeDef ADE7953_WriteRegister(I2C_HandleTypeDef *hi2c, uint8_t reg, uint32_t value, uint8_t size){
+
+}
+HAL_StatusTypeDef ADE7953_ReadRegister(I2C_HandleTypeDef *hi2c, uint8_t reg, uint32_t *value, uint8_t size);
+HAL_StatusTypeDef ADE7953_Reset(I2C_HandleTypeDef *hi2c);

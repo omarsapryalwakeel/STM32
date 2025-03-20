@@ -1,0 +1,20 @@
+16:25:49 **** Incremental Build of configuration Debug for project SmartEnergyMaster ****
+make -j8 all 
+arm-none-eabi-gcc "../SENSORS/ESP8266.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I"E:/Smart Energy Meter with IoT/SmartEnergyMaster/SENSORS" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"SENSORS/ESP8266.d" -MT"SENSORS/ESP8266.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "SENSORS/ESP8266.o"
+arm-none-eabi-gcc -o "SmartEnergyMaster.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\Smart Energy Meter with IoT\SmartEnergyMaster\STM32F103C4TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SmartEnergyMaster.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SmartEnergyMaster.elf
+ 
+arm-none-eabi-size  SmartEnergyMaster.elf 
+arm-none-eabi-objdump -h -S SmartEnergyMaster.elf  > "SmartEnergyMaster.list"
+arm-none-eabi-objcopy  -O ihex SmartEnergyMaster.elf  "SmartEnergyMaster.hex"
+   text	   data	    bss	    dec	    hex	filename
+  15652	     92	   2068	  17812	   4594	SmartEnergyMaster.elf
+Finished building: default.size.stdout
+ 
+Finished building: SmartEnergyMaster.hex
+ 
+Finished building: SmartEnergyMaster.list
+ 
+
+16:25:51 Build Finished. 0 errors, 0 warnings. (took 1s.265ms)
+

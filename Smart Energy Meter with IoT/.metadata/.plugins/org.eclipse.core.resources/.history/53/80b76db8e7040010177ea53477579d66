@@ -1,0 +1,21 @@
+/*
+ * ESP8266.c
+ *
+ *  Created on: Mar 19, 2025
+ *      Author: omar
+ */
+
+
+#include "ESP8226.h"
+static UART_HandleTypeDef ESP8226;
+ESP8266_Status ESP8266_Init(UART_HandleTypeDef *huart){
+	if(!huart)return ESP8226_Error;
+	ESP8226=huart;
+	HAL_Delay(1000);
+}
+ESP8266_Status ESP8266_SendCommand(char *command, char *expected_response, uint32_t timeout){
+
+}
+ESP8266_Status ESP8266_ConnectWiFi(void);
+ESP8266_Status ESP8266_SendData(char *data);
+ESP8266_Status ESP8266_CloseConnection(void);

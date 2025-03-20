@@ -1,0 +1,49 @@
+/*
+ * ESP8266.c
+ *
+ *  Created on: Mar 19, 2025
+ *      Author: omar
+ */
+
+
+#include "ESP8226.h"
+static UART_HandleTypeDef *ESP8226;
+ESP8266_Status ESP8266_Init(UART_HandleTypeDef *huart){
+	if(!huart)return ESP8266_ERROR;
+	ESP8226=huart;
+	HAL_Delay(1000);
+	return ESP8266_OK;
+}
+ESP8266_Status ESP8266_SendCommand(char *command, char *expected_response, uint32_t timeout){
+	if(!command||!expected_response) return ESP8266_ERROR;
+	char response[100]={0};
+	HAL_StatusTypeDef ststus=HAL_UART_Transmit(ESP8226,  (uint8_t *)command, sizeof(command), 100);
+	HAL_Delay(timeout);
+	if(ststus==HAL_ERROR) return ESP8266_ERROR;
+
+    HAL_UART_Receive(ESP8226, (uint8_t *)response, sizeof(response), timeout);
+    return (strstr(response, expected_response) != NULL) ?ESP8266_OK : ESP8266_NOT_CONNECTED;
+}
+ESP8266_Status ESP8266_ConnectWiFi(void){
+	if(ESP8266_CheckConnection()==ESP8266_CONNECTED)return ESP8266_CONNECTED;
+	char CMD[100];
+	sprintf(CMD,"AT+CWSAP=\"%S\",\"%s\"\r\n",WIFI_SSID,WIFI_PASS);
+	return ESP8266_SendCommand(connect_cmd, "WIFI CONNECTED", 5000) ? ESP8266_CONNECTED : ESP8266_NOT_CONNECTED;
+}
+ESP8266_Status ESP8266_SendData(char *data){
+	if(ESP8266_CheckConnection()!=ESP8266_CONNECTED)return ESP8266_NOT_CONNECTED;
+	char CMD[50];
+	sprintf(CMD,"AT+CIPSEND=%d\r\n",(int)len(data));
+	if(ESP8266_SendCommand(CMD, ">", 1000)!=ESP8266_OK)return ESP8266_ERROR;
+    return ESP8266_SendCommand(data, "SEND OK", 2000) ? ESP8266_OK : ESP8266_SEND_FAILED;
+}
+ESP8266_Status ESP8266_CloseConnection(void){
+	return ESP8266_SendCommand("AT+CIPCLOSE\r\n", "OK", 1000);
+}
+
+ESP8266_Status ESP8266_CheckConnection(void){
+	char Respones[100]={0};
+	ESP8266_SendCommand("AT+CWJAP?\r\n","OK", 2000);
+	HAL_UART_Receive(ESP8226, (uint8_t *)response, sizeof(response), 2000);
+	return (strstr(response, WIFI_SSID) != NULL) ? ESP8266_CONNECTED : ESP8266_NOT_CONNECTED;
+}

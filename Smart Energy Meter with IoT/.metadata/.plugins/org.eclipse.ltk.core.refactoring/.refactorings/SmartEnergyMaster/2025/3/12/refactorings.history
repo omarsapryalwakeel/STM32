@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;SmartEnergyMaster/SENSORS/AED7753.h&apos; to &apos;AED7953.h&apos;" description="Rename resource &apos;AED7753.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SENSORS/AED7753.h" name="AED7953.h" stamp="1742344584015" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;SmartEnergyMaster/SENSORS/AED7953.h&apos; to &apos;ADE7953.h&apos;" description="Rename resource &apos;AED7953.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="SENSORS/AED7953.h" name="ADE7953.h" stamp="1742344629800" updateReferences="true"/>
+</session>

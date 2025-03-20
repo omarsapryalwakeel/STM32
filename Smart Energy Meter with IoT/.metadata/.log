@@ -1,0 +1,72 @@
+!SESSION 2025-03-19 01:10:24.464 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-03-19 01:33:02.386
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-03-19 01:33:02.390
+!MESSAGE Log4j2 initialized with config file E:\Smart Energy Meter with IoT\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-19 01:33:55.579
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-19 01:43:21.363
+!MESSAGE Indexed 'SmartEnergyMaster' (17 sources, 78 headers) in 5.77 sec: 3,632 declarations; 13,137 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.012%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-19 02:35:07.524
+!MESSAGE Indexed 'SmartEnergyMaster' (20 sources, 81 headers) in 2.02 sec: 4,422 declarations; 24,526 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0069%)
+!SESSION 2025-03-19 15:59:30.029 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-03-19 16:01:24.637
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-03-19 16:01:24.653
+!MESSAGE Log4j2 initialized with config file E:\Smart Energy Meter with IoT\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-19 16:01:45.455
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-19 16:28:28.365
+!MESSAGE Indexed 'SmartEnergyMaster' (21 sources, 82 headers) in 4.06 sec: 4,453 declarations; 24,607 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0069%)
+!SESSION 2025-03-20 01:04:55.485 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-03-20 01:06:04.852
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-03-20 01:06:04.893
+!MESSAGE Log4j2 initialized with config file E:\Smart Energy Meter with IoT\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-20 01:06:20.842
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-03-20 05:31:30.384 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2025-03-20 05:31:51.520
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-03-20 05:33:20.937
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-03-20 05:33:20.938
+!MESSAGE Log4j2 initialized with config file E:\Smart Energy Meter with IoT\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-20 05:33:58.100
+!MESSAGE Started RMI Server, listening on port 41337
