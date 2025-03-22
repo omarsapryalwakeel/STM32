@@ -1,0 +1,82 @@
+/*
+ * MPU6050.c
+ *
+ *  Created on: Mar 21, 2025
+ *      Author: omar
+ */
+
+
+#include "MPU6050.h"
+
+I2C_HandleTypeDef *MPU6050;
+
+HAL_StatusTypeDef MPU6050_Init(I2C_HandleTypeDef *hi2c){
+	//if(!hi2c)return HAL_ERROR ;
+	MPU6050=hi2c;
+	uint8_t  Cheak;
+	HAL_I2C_Mem_Read(hi2c, MPU6050_ADDR, WHO_AM_I_REG, 1, &Cheak , 1, 1000);
+	if(Cheak!=0x68)return HAL_ERROR;
+	uint8_t Data;
+	Data=0;
+	if(HAL_I2C_Mem_Write(hi2c, MPU6050_ADDR, 0x6B, 1, &Data, 1, 1000)!=HAL_OK)return HAL_ERROR;
+	Data=0x07;
+	if(HAL_I2C_Mem_Write(hi2c, MPU6050_ADDR, 0x19, 1, &Data, 1, 1000)!=HAL_OK)return HAL_ERROR;
+	// Set accelerometer configuration in ACCEL_CONFIG Register
+	Data = 0x00;  // XA_ST=0,YA_ST=0,ZA_ST=0, FS_SEL=0 -> ± 2g
+	if(HAL_I2C_Mem_Write(hi2c, MPU6050_ADDR, 0x1C, 1, &Data, 1, 1000)!=HAL_OK)return HAL_ERROR;
+
+	// Set Gyroscopic configuration in GYRO_CONFIG Register
+	Data = 0x00;  // XG_ST=0,YG_ST=0,ZG_ST=0, FS_SEL=0 -> ± 250 ̐/s
+	if(HAL_I2C_Mem_Write(hi2c, MPU6050_ADDR, 0x1B, 1, &Data, 1, 1000)!=HAL_OK)return HAL_ERROR;
+
+	return HAL_OK;
+}
+HAL_StatusTypeDef MPU6050_Read_Accel(int16_t *AccelX, int16_t *AccelY, int16_t *AccelZ){
+	if(!AccelX||!AccelY||!AccelZ)return HAL_ERROR;
+	uint8_t Data[6];
+	if(HAL_I2C_Mem_Read(MPU6050, MPU6050_ADDR, 0x3B, 1, Data, 6, 1000)!=HAL_OK)return HAL_ERROR;
+	*AccelX=(int16_t)((Data[0]<<8)|Data[1]);
+	*AccelY=(int16_t)((Data[2]<<8)|Data[3]);
+	*AccelZ=(int16_t)((Data[4]<<8)|Data[5]);
+	return HAL_OK;
+}
+HAL_StatusTypeDef MPU6050_Read_Gyro( int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ){
+	if(!GyroX||!GyroY||!GyroZ)return HAL_ERROR;
+		uint8_t Data[6];
+		if(HAL_I2C_Mem_Read(MPU6050, MPU6050_ADDR, 0x43, 1, Data, 6, 1000)!=HAL_OK)return HAL_ERROR;
+		*GyroX=(int16_t)((Data[0]<<8)|Data[1]);
+		*GyroY=(int16_t)((Data[2]<<8)|Data[3]);
+		*GyroZ=(int16_t)((Data[4]<<8)|Data[5]);
+		return HAL_OK;
+}
+HAL_StatusTypeDef MPU6050_Read_Temp( float *Temperature){
+	if(!Temperature)return HAL_ERROR;
+			uint8_t Data[2];
+			if(HAL_I2C_Mem_Read(MPU6050, MPU6050_ADDR, 0x41, 1, Data,2, 1000)!=HAL_OK)return HAL_ERROR;
+			*Temperature = ((float)((int16_t)((Data[0] << 8) | Data[1])) / 340.0f) + 36.53f;
+			return HAL_OK;
+}
+HAL_StatusTypeDef MPU6050_Read_All( int16_t *AccelX, int16_t *AccelY, int16_t *AccelZ,
+                                   int16_t *GyroX, int16_t *GyroY, int16_t *GyroZ, float *Temperature){
+
+	if(!AccelX||!AccelY||!AccelZ||!GyroX||!GyroY||!GyroZ||!Temperature)return HAL_ERROR;
+	if(MPU6050_Read_Accel(AccelX,AccelY,AccelZ)!=HAL_OK)return HAL_ERROR;
+	if(MPU6050_Read_Gyro(GyroX, GyroY, GyroZ)!=HAL_OK)return HAL_ERROR;
+	if(MPU6050_Read_Temp(Temperature)!=HAL_OK)return HAL_ERROR;
+	return HAL_OK;
+}
+
+
+void TaskMPU6050(void *vPR){
+	MPU6050Data data;
+	while(1){
+		MPU6050_Read_All(&data.AccelX, &data.AccelY, &data.AccelZ, &data.GyroX, &data.GyroY, &data.GyroZ, &data.Temperature);
+		xQueueSend(MPU6050Queue,&data,portMAX_DELAY);
+		vTaskDelay(pdMS_TO_TICKS(100));
+	}
+}
+
+void MPU6050_init_task(){
+	MPU6050Queue = xQueueCreate(5, sizeof(MPU6050Queue));
+	xTaskCreate(TaskMPU6050, "MPU6050 Task", 200, NULL, 2, NULL);
+}

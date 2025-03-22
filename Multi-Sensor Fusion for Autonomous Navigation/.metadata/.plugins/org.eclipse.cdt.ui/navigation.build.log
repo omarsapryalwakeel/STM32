@@ -1,0 +1,20 @@
+03:08:56 **** Incremental Build of configuration Debug for project navigation ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"E:/Projecrs/Multi-Sensor Fusion for Autonomous Navigation/navigation/Sensor" -I"E:/Projecrs/Multi-Sensor Fusion for Autonomous Navigation/navigation/FreeRtos" -I"E:/Projecrs/Multi-Sensor Fusion for Autonomous Navigation/navigation/FreeRtos/Source" -I"E:/Projecrs/Multi-Sensor Fusion for Autonomous Navigation/navigation/FreeRtos/Source/include" -I"E:/Projecrs/Multi-Sensor Fusion for Autonomous Navigation/navigation/FreeRtos/Source/portable/GCC/ARM_CM4F" -I"E:/Projecrs/Multi-Sensor Fusion for Autonomous Navigation/navigation/FreeRtos/Source/portable/MemMang" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "navigation.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\Projecrs\Multi-Sensor Fusion for Autonomous Navigation\navigation\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="navigation.map" -Wl,--gc-sections -static -g -O0 --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: navigation.elf
+ 
+arm-none-eabi-size  navigation.elf 
+arm-none-eabi-objdump -h -S navigation.elf  > "navigation.list"
+arm-none-eabi-objcopy  -O ihex navigation.elf  "navigation.hex"
+   text	   data	    bss	    dec	    hex	filename
+  47944	    476	   7572	  55992	   dab8	navigation.elf
+Finished building: default.size.stdout
+ 
+Finished building: navigation.hex
+ 
+Finished building: navigation.list
+ 
+
+03:09:02 Build Finished. 0 errors, 0 warnings. (took 5s.651ms)
+
