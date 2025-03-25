@@ -1,0 +1,9 @@
+17:00:29 **** Incremental Build of configuration Debug for project LoRA ****
+make -j8 all 
+arm-none-eabi-gcc "../Sensor/LoRA.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"E:/Projecrs/ SX1278 LoRa/LoRA/Sensor" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Sensor/LoRA.d" -MT"Sensor/LoRA.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Sensor/LoRA.o"
+make: *** No rule to make target 'SX1278 LoRa\LoRA\STM32F401RCTX_FLASH.ld', needed by 'LoRA.elf'.  Stop.
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+17:00:33 Build Failed. 2 errors, 0 warnings. (took 3s.866ms)
+

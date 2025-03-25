@@ -1,0 +1,42 @@
+!SESSION 2025-03-24 15:10:14.521 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-03-24 15:14:24.672
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-03-24 15:14:24.695
+!MESSAGE Log4j2 initialized with config file E:\Projecrs\ SX1278 LoRa\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-03-24 15:15:42.127
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.resources 4 77 2025-03-24 15:23:46.858
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2025-03-24 15:23:46.858
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2025-03-24 15:23:46.858
+!MESSAGE E:\Projecrs\ SX1278 LoRa\ SX1278 LoRa overlaps the location of another project: ' SX1278 LoRa'
+
+!ENTRY org.eclipse.core.resources 4 77 2025-03-24 23:44:45.807
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2025-03-24 23:44:45.807
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2025-03-24 23:44:45.807
+!MESSAGE E:\Projecrs\ SX1278 LoRa\ SX1278 LoRa overlaps the location of another project: ' SX1278 LoRa'
+
+!ENTRY org.eclipse.core.resources 4 77 2025-03-24 23:46:58.816
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2025-03-24 23:46:58.816
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2025-03-24 23:46:58.816
+!MESSAGE E:\Projecrs\ SX1278 LoRa\ SX1278 LoRa overlaps the location of another project: ' SX1278 LoRa'
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-03-24 23:58:49.769
+!MESSAGE Indexed 'LoRA' (19 sources, 81 headers) in 10.4 sec: 4,276 declarations; 17,909 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.009%)
+
+!ENTRY org.eclipse.cdt.ui 2 0 2025-03-25 16:34:27.211
+!MESSAGE The 'org.eclipse.cdt.ui.DOMCompletionProposalComputer' proposal computer from the 'org.eclipse.cdt.ui' plug-in did not complete normally. The extension took too long to return from the 'computeCompletionProposals()' operation.

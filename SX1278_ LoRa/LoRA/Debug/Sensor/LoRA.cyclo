@@ -1,0 +1,9 @@
+../Sensor/LoRA.c:13:6:SX1278_Init	1
+../Sensor/LoRA.c:22:6:SX1278_SetFrequency	1
+../Sensor/LoRA.c:29:6:SX1278_SetTxPower	2
+../Sensor/LoRA.c:38:6:SX1278_SendPacket	3
+../Sensor/LoRA.c:51:9:SX1278_ReceivePacket	4
+../Sensor/LoRA.c:63:9:SX1278_CheckRSSI	1
+../Sensor/LoRA.c:66:6:SX1278_SetMode	1
+../Sensor/LoRA.c:69:9:SX1278_ReadRegister	1
+../Sensor/LoRA.c:79:6:SX1278_WriteRegister	1

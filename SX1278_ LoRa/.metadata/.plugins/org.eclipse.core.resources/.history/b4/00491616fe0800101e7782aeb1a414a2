@@ -1,0 +1,62 @@
+/*
+ * LoRA.h
+ *
+ *  Created on: Mar 25, 2025
+ *      Author: omar
+ */
+
+#ifndef LORA_H_
+#define LORA_H_
+
+extern SPI_HandleTypeDef SX1278_SPI;
+
+
+// LoRa mode settings
+#define LORA_MODE_SLEEP      0x00
+#define LORA_MODE_STDBY      0x01
+#define LORA_MODE_TX         0x03
+#define LORA_MODE_RX         0x05
+
+
+// Common SX1278 Registers
+#define REG_OP_MODE          0x01
+#define REG_FRF_MSB          0x06
+#define REG_FRF_MID          0x07
+#define REG_FRF_LSB          0x08
+#define REG_PA_CONFIG        0x09
+#define REG_PA_RAMP          0x0A
+#define REG_OCP              0x0B
+#define REG_LNA              0x0C
+#define REG_FIFO_ADDR_PTR    0x0D
+#define REG_FIFO_TX_BASE     0x0E
+#define REG_FIFO_RX_BASE     0x0F
+#define REG_FIFO_RX_CURRENT  0x10
+#define REG_IRQ_FLAGS        0x12
+#define REG_RX_NB_BYTES      0x13
+#define REG_PKT_RSSI_VALUE   0x19
+#define REG_PKT_SNR_VALUE    0x1A
+#define REG_MODEM_CONFIG1    0x1D
+#define REG_MODEM_CONFIG2    0x1E
+#define REG_SYMB_TIMEOUT_LSB 0x20
+#define REG_PAYLOAD_LENGTH   0x22
+#define REG_MODEM_CONFIG3    0x26
+#define REG_FREQ_ERROR       0x27
+#define REG_DETECT_OPTIMIZE  0x31
+#define REG_INVERT_IQ        0x33
+#define REG_DIO_MAPPING1     0x40
+#define REG_DIO_MAPPING2     0x41
+#define REG_VERSION          0x42
+#define REG_PA_DAC           0x4D
+
+// Function prototypes
+void SX1278_Init(SPI_HandleTypeDef *spi);
+void SX1278_SetFrequency(uint32_t frequency);
+void SX1278_SetTxPower(uint8_t power);
+void SX1278_SendPacket(uint8_t *data, uint8_t length);
+uint8_t SX1278_ReceivePacket(uint8_t *buffer, uint8_t maxLength);
+uint8_t SX1278_CheckRSSI(void);
+void SX1278_SetMode(uint8_t mode);
+uint8_t SX1278_ReadRegister(uint8_t reg);
+void SX1278_WriteRegister(uint8_t reg, uint8_t value);
+
+#endif /* LORA_H_ */
