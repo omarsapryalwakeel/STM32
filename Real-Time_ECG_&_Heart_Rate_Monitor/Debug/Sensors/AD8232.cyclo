@@ -1,0 +1,6 @@
+../Sensors/AD8232.c:21:6:HAL_GPIO_EXTI_Callback	5
+../Sensors/AD8232.c:34:17:AD8232_Init	2
+../Sensors/AD8232.c:40:11:AD8232_ReadECG	1
+../Sensors/AD8232.c:43:17:AD8232_CheckLeadOff	1
+../Sensors/AD8232.c:46:10:AD8232_GetHeartRate	1
+../Sensors/AD8232.c:50:6:HAL_ADC_ConvCpltCallback	6

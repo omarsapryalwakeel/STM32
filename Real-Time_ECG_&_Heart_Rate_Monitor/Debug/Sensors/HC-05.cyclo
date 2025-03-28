@@ -1,0 +1,14 @@
+../Sensors/HC-05.c:13:6:HC05_Init	1
+../Sensors/HC-05.c:17:15:HC05_Reset	2
+../Sensors/HC-05.c:26:15:HC05_SetBaudRate	2
+../Sensors/HC-05.c:36:15:HC05_EnterCommandMode	1
+../Sensors/HC-05.c:41:15:HC05_ExitCommandMode	1
+../Sensors/HC-05.c:48:15:HC05_SendString	3
+../Sensors/HC-05.c:55:15:HC05_SendData	3
+../Sensors/HC-05.c:63:15:HC05_ReceiveData	3
+../Sensors/HC-05.c:71:15:HC05_CheckConnection	5
+../Sensors/HC-05.c:88:15:HC05_SetName	6
+../Sensors/HC-05.c:107:15:HC05_SetPin	6
+../Sensors/HC-05.c:127:15:HC05_SetRole	7
+../Sensors/HC-05.c:154:15:HC05_BindDevice	6
+../Sensors/HC-05.c:173:15:HC05_SetDiscoverable	5
